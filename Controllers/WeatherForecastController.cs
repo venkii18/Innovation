@@ -29,7 +29,7 @@ namespace Deployment.Controllers
             return Ok();
         }
 
-        [HttpGet()]
+        [HttpGet("Error")]
         public IActionResult NotRunning()
         {
              Response.StatusCode = 400;
