@@ -39,7 +39,7 @@ namespace Deployment.Controllers
         [HttpGet("Result")]
         public IActionResult Get()
         {
-            return Ok("Blue");
+            return Ok("Green");
         }
     }
 }
