@@ -46,15 +46,15 @@ jobs:
     #- name: Push Image to Github Registry
       #run: |
          # docker push quay.io/neinnovationorg/deployment:${{ steps.extract_branch.outputs.branch }}
-    - name: OpenShift Action
-      uses: redhat-developer/openshift-actions@v2.0
-      with:
+    #- name: OpenShift Action
+      #uses: redhat-developer/openshift-actions@v2.0
+      #with:
         # The URL of the Openshift cluster
-        openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL  }}
+        #openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL  }}
         # JSON with values to connect to the Openshift cluster
-        parameters: '{"username": "${{ secrets.OPENSHIFT_USER  }}", "acceptUntrustedCerts": "true", "password":"${{ secrets.OPENSHIFT_PASSWORD  }}"}'
+        #parameters: '{"username": "${{ secrets.OPENSHIFT_USER  }}", "acceptUntrustedCerts": "true", "password":"${{ secrets.OPENSHIFT_PASSWORD  }}"}'
           
-        cmd: |
-          'version'
-          'project my-nomination'
-          'tag --source=docker quay.io/neinnovationorg/deployment:${{ steps.extract_branch.outputs.branch }} my-nomination-stage/deployment:${{ steps.extract_branch.outputs.branch }}'
+        #cmd: |
+          #'version'
+          #'project my-nomination'
+          #'tag --source=docker quay.io/neinnovationorg/deployment:${{ steps.extract_branch.outputs.branch }} my-nomination-stage/deployment:${{ steps.extract_branch.outputs.branch }}'
