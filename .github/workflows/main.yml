@@ -34,18 +34,18 @@ jobs:
         echo ::set-output name=branch::${GITHUB_REF#refs/heads/}
         echo ::set-output name=docker_repo::$(echo /neinnovationorg/deployment) 
         
-    - name: Login to Podman
-      id: login
-      run:  |
-         echo ${{ steps.extract_branch.outputs.branch }}
-         echo ${{ steps.extract_branch.outputs.sha_short }}
-         docker login quay.io -u ${{ secrets.docker_username }} -p ${{ secrets.docker_password }}
-    - name: Build Image using Podman
-      run: |
-         docker build . -t quay.io/neinnovationorg/deployment:${{ steps.extract_branch.outputs.branch }}
-    - name: Push Image to Github Registry
-      run: |
-          docker push quay.io/neinnovationorg/deployment:${{ steps.extract_branch.outputs.branch }}
+    #- name: Login to Podman
+      #id: login
+      #run:  |
+         #echo ${{ steps.extract_branch.outputs.branch }}
+         #echo ${{ steps.extract_branch.outputs.sha_short }}
+         #docker login quay.io -u ${{ secrets.docker_username }} -p ${{ secrets.docker_password }}
+    #- name: Build Image using Podman
+      #run: |
+         #docker build . -t quay.io/neinnovationorg/deployment:${{ steps.extract_branch.outputs.branch }}
+    #- name: Push Image to Github Registry
+      #run: |
+         # docker push quay.io/neinnovationorg/deployment:${{ steps.extract_branch.outputs.branch }}
     - name: OpenShift Action
       uses: redhat-developer/openshift-actions@v2.0
       with:
