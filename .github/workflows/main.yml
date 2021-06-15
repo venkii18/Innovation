@@ -34,7 +34,7 @@ jobs:
         echo ::set-output name=branch::${GITHUB_REF#refs/heads/}
         echo ::set-output name=docker_repo::$(echo /neinnovationorg/deployment) 
         
-    #- name: Login to Podman
+    #- name: Login to Podman Not Avaliable in Accenture for now
       #id: login
       #run:  |
          #echo ${{ steps.extract_branch.outputs.branch }}
